@@ -1,8 +1,11 @@
 {
+  "homepage": "https://ishita12rawat.github.io/Authentication",
   "name": "post",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app"
   },
@@ -15,9 +18,12 @@
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "gh-pages": "^6.1.1",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.2",
     "nodemon": "^3.1.4"
+ 
+
   }
 }
