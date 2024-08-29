@@ -1,6 +1,4 @@
 const express=require('express')
-
-
 const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken')
 const User= require('./models/user')
@@ -84,6 +82,12 @@ app.get('/profile', islogged ,async(req,res)=>{
     res.render('profile',{user})
     })
 
+
+app.get('/read',async(req,res)=>{
+    let users=await User.find().populate('posts')
+ 
+    res.render('read',{users})
+})    
 
 // function islogged(req,res,next){
 // if(req.cookies.token === "") return res.send('you must be login')
