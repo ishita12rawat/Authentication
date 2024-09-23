@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Users and Their Posts</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/read.css">
 </head>
 <body>
-    <div class="post  bg-zinc-300">
-        <h3 class="text-2xl p-4 text-black">All Users and Their Quotes</h3>
-        <a href="/profile" class=" px-3 py-2 bg-blue-500 rounded-lg mt-4">Go to your profile</a>
-        <div class="postcontainer mt-5">
+    <div >
+        <h3 >All Users and Their Quotes</h3>
+        <a href="/profile" >Go to your profile</a>
+        <div >
             <% users.forEach((user) => { %>
-                <div class="user-card mb-6 p-5 bg-gray-800 rounded-lg border-2 border-gray-700">
-                    <h2 class="text-2xl text-white mb-4"><%= user.name %></h2>
+                <div >
+                    <h2 ><%= user.name %></h2>
                     
-                    <div class="posts">
+                    <div >
                         <% user.posts.forEach((ele) => { %>
-                            <div class="post p-5 mb-4 border-2 bg-slate-800 rounded-lg border-zinc-700">
-                                <p class="text-white tracking-tight"><%= ele.content %></p>
+                            <div >
+                                <p ><%= ele.content %></p>
                               
                             </div>
                         <% }) %>
                     </div>
                 </div>
             <% }) %>
-            <a class="px-3  bg-blue-500 rounded-lg" href="/logout">Logout</a>
+            <a  href="/logout">Logout</a>
         </div>
     </div>
 </body>
