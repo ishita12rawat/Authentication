@@ -1,17 +1,70 @@
-const express=require('express')
-const bcrypt=require('bcrypt')
-const jwt=require('jsonwebtoken')
-const User= require('./models/user')
-const Post=require('./models/post')
-const cookieParser=require('cookie-parser')
-const PORT=4090
-const app=express()
-app.set("view engine","ejs")
-app.use(express.json())
+// const express=require('express')
+// const bcrypt=require('bcrypt')
+// const jwt=require('jsonwebtoken')
+// const User= require('./models/user')
+// const Post=require('./models/post')
+// const cookieParser=require('cookie-parser')
+// const PORT=4090
+// const app=express()
+// app.set("view engine","ejs")
+// app.use(express.json())
+
+
+
+
 // const Post =require('./models/post')
-app.use(express.urlencoded({extended:true}))
-app.use(express.static('public'))
-app.use(cookieParser())
+
+
+
+
+
+
+
+
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
+
+const User = require('./models/user');
+const Post = require('./models/post');
+
+const app = express();
+const PORT = process.env.PORT || 4090;
+
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.error("Mongo error:", err));
+
+app.set("view engine", "ejs");
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+app.use(cookieParser());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// app.use(express.urlencoded({extended:true}))
+// app.use(express.static('public'))
+// app.use(cookieParser())
 app.get('/',(req,res)=>{
     res.render('index',{errmsg:null})
 })
